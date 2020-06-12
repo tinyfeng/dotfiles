@@ -1,6 +1,8 @@
 " ================ Vim only : start ==============
 " Neovim has defaults
 if !has("nvim")
+set rubydll=/Users/lankr/.rvm/rubies/ruby-2.6.3/lib/libruby.2.6.dylib
+let $RUBYHOME="/Users/lankr/.rvm/rubies/ruby-2.6.3"
 
   " Use Vim settings, rather then Vi settings (much better!).  " This must be first, because it changes other options as a side effect.
   set nocompatible
@@ -56,7 +58,7 @@ endif
 " That means all \x commands turn into ,x
 " The mapleader has to be set before vundle starts loading all
 " the plugins.
-let mapleader=","
+let mapleader=";"
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
@@ -239,8 +241,12 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> <c-m> <Plug>(coc-range-select)
+" xmap <silent> <c-m> <Plug>(coc-range-select)
+nnoremap <c-m> <TAB>
+xnoremap <c-m> <TAB>
+nnoremap <silent> <TAB> <Plug>(coc-range-select)
+xnoremap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
@@ -285,3 +291,91 @@ let g:hybrid_reduced_contrast = 1
 colorscheme solarized8
 let g:lightline.colorscheme='solarized'
 
+map <leader>ff <C-p>
+" ;q 强制退出
+map q :q<cr>
+" ;w 保存
+map <leader>w :w!<cr>
+" ;W 保存并退出
+map W :wq!<cr>
+" ;Q 退出全部窗口
+map Q :qa!<cr>
+" ;e 保存只读文件
+map <leader>e :w !sudo tee %<cr>
+" ;tn 打开或关闭目录数
+map <leader>tn :NERDTreeToggle<cr>
+
+map <Leader>gb :Gblame<cr>
+nnoremap <f2> $
+nnoremap <f1> ^
+inoremap <f2> <esc>$a
+inoremap <f1> <esc>^i
+vnoremap <f2> $<left>
+vnoremap <f1> ^
+set autoread
+nnoremap ;' bi'<esc>ea'<esc>
+autocmd TextChanged,TextChangedI <buffer> silent write
+imap <c-h> <left>
+imap <c-j> <down>
+imap <c-k> <up>
+imap <c-l> <right>
+tnoremap <esc> <C-\><C-n>
+nnoremap <C-j> 5j
+nnoremap <C-k> 5k
+vnoremap <C-j> 5j
+vnoremap <C-k> 5k
+noremap <leader>nrc :te<cr>:f rc<cr>a rails c <cr>
+noremap <leader>nrc :te<cr>:f te<cr>
+noremap <leader>nrs :te<cr>:f rs<cr>a rails s <cr>
+noremap <leader>nsi :te<cr>:f si<cr>a bundle exec sidekiq -C config/sidekiq.yml <cr>
+nnoremap <leader>brc :b rc<cr>
+nnoremap <leader>bsi :b si<cr>
+nnoremap <leader>brs :b rs<cr>
+nnoremap <leader>bte :b te<cr>
+nnoremap <leader>frc :f rc<cr>
+nnoremap <leader>frs :f rs<cr>
+nnoremap <leader>fte :f te<cr>
+nnoremap <leader>fsi :f si<cr>
+
+" 在换行的一行中上下移动
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>te :te<cr><cr>
+nnoremap <Leader>ac :Ag "<cword>" <cr>
+nnoremap <leader>ag :Ag ""<Left>
+nnoremap <leader>ff ,ff
+nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>h :vertical resize +10<CR>
+nnoremap <leader>l :vertical resize -10<CR>
+if exists("did_load_csvfiletype")
+  finish
+endif
+let did_load_csvfiletype=1
+
+augroup filetypedetect
+  au! BufRead,BufNewFile *.csv,*.dat	setfiletype csv
+augroup END
+filetype plugin on
+set rtp+=~/tabnine-vim
+autocmd CursorHold,CursorHoldI * update
+hi SpecialKey ctermbg=NONE guibg=NONE
+if has("gui_macvim")
+  nnoremap <leader>te :terminal<cr>
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to
+  " the right side. Ctrl-Shift-Tab goes the other way.
+  noremap <leader>l :tabnext<CR>
+  noremap <leader>h :tabprev<CR>
+
+  " Switch to specific tab numbers with Command-number
+  noremap <D-1> :tabn 1<CR>
+  noremap <D-2> :tabn 2<CR>
+  noremap <D-3> :tabn 3<CR>
+  noremap <D-4> :tabn 4<CR>
+  noremap <D-5> :tabn 5<CR>
+  noremap <D-6> :tabn 6<CR>
+  noremap <D-7> :tabn 7<CR>
+  noremap <D-8> :tabn 8<CR>
+  noremap <D-9> :tabn 9<CR>
+  " Command-0 goes to the last tab
+  noremap <D-0> :tablast<CR>
+endif

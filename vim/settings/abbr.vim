@@ -2,6 +2,7 @@
 
 abbr rlb Rails.logger.banner
 abbr rld Rails.logger.debug
+abbr rli Rails.logger.info
 abbr pry! require 'pry'; binding.pry
 abbr cl! console.log( )<left><left>
 

@@ -24,3 +24,19 @@ profile_script_start "completion path"
 fpath=(~/.zsh/completion $fpath)
 profile_script_start "completion init"
 autoload -Uz compinit && compinit -i # is it necessary here?
+alias vi="nvim"
+alias vim="nvim"
+export EDITOR='nvim'
+alias c="clear"
+export XDG_DATA_HOME="$HOME/.config/nvim"
+alias oc="/usr/local/octave/3.8.0/bin/octave-3.8.0 ; exit;"
+alias cr="clear"
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPROXY=https://goproxy.io
+bindkey '^F' autosuggest-execute
+alias tiny="cd ~/tiny"
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export PATH="$PATH:/Users/lankr/flutter/bin"
