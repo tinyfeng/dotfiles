@@ -41,14 +41,14 @@ Please use GitHub Issues for pull requests or bug reports only.
 To get started please run:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/qianthinking/dotfiles/master/install.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/tinyfeng/dotfiles/master/install.sh`"
 ```
 
 **Note:** YADR will automatically install all of its subcomponents. If you want to be asked
 about each one, use:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/qianthinking/dotfiles/master/install.sh`" -s ask
+bash -c "`curl -fsSL https://raw.githubusercontent.com/tinyfeng/dotfiles/master/install.sh`" -s ask
 ```
 
 ## Wait, you're not done! Do this:
