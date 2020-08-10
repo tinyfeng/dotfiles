@@ -40,3 +40,8 @@ alias tiny="cd ~/tiny"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PATH="$PATH:/Users/lankr/flutter/bin"
+export PATH="$PATH:/Users/lankr/elasticsearch-2.3.0/bin"
+export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;
+source ~/.bashrc
+export PATH="$PATH:/usr/local/mysql/bin"
+alias t="tmux new -A -s"
