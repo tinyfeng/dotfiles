@@ -1,8 +1,8 @@
 " ================ Vim only : start ==============
 " Neovim has defaults
 if !has("nvim")
-set rubydll=/Users/lankr/.rvm/rubies/ruby-2.6.3/lib/libruby.2.6.dylib
-let $RUBYHOME="/Users/lankr/.rvm/rubies/ruby-2.6.3"
+set rubydll=/Users/tiny/.rvm/rubies/ruby-2.6.3/lib/libruby.2.6.dylib
+let $RUBYHOME="/Users/tiny/.rvm/rubies/ruby-2.6.3"
 
   " Use Vim settings, rather then Vi settings (much better!).  " This must be first, because it changes other options as a side effect.
   set nocompatible
@@ -247,6 +247,8 @@ nnoremap <c-m> <TAB>
 xnoremap <c-m> <TAB>
 nnoremap <silent> <TAB> <Plug>(coc-range-select)
 xnoremap <silent> <TAB> <Plug>(coc-range-select)
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
@@ -278,6 +280,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" override coc setting for buffer jumping
+nnoremap <silent> <c-i> :BufSurfForward<CR>
+nnoremap <silent> <c-o> :BufSurfBack<CR>
 " ================ Coc Settings End ========================
 
 
@@ -379,3 +384,14 @@ if has("gui_macvim")
   " Command-0 goes to the last tab
   noremap <D-0> :tablast<CR>
 endif
+" use term bg color(black) to fix the bracket color in the float window
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+colorscheme hybrid_material
+let g:lightline.colorscheme='material'
+
+hi! CursorLine guibg=#263238 ctermbg=234
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight CursorLine guibg=black ctermbg=black
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight CursorLine guibg=#263238 ctermbg=234

@@ -10,7 +10,7 @@ nnoremap ,yw yiww
 
 " ,ow = 'overwrite word', replace a word with what's in the yank buffer
 " FIXME: will not properly repeat when you use a dot (tie into repeat.vim)
-nnoremap ,ow "_diwhp
+nnoremap ,ow "_diwP
 
 "make Y consistent with C and D
 nnoremap Y y$
@@ -276,3 +276,8 @@ imap <F8> <C-O><F8>
 nnoremap <silent> <C-x> :cn<CR>
 nnoremap <silent> <C-z> :cp<CR>
 
+" gary bernhardt's hashrocket
+inoremap <c-l> <space>=><space>
+cnoremap <c-l> <space>=><space>
+inoremap <c-g> <space>-><space>
+cnoremap <c-g> <space>-><space>

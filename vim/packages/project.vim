@@ -1,7 +1,9 @@
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
+" jump between buffers with visited order
+Plug 'qianthinking/vim-bufsurf'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -13,5 +15,6 @@ Plug 'JazzCore/ctrlp-cmatcher'
 "FZF base Homebrew
 "Plug '/usr/local/opt/fzf'
 "Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
 

@@ -171,5 +171,5 @@
 [include]
   path = .gitconfig.user
 [user]
-	email = yanli.hou@lankr.cn
+	email = tinyfeng.hou@gmail.com
 	name = tiny
